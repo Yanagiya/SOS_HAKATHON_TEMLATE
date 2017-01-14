@@ -23,11 +23,9 @@ export default class Root extends Component {
             <Router history={createBrowserHistory()}>
               <Route path='/' component={Blog} />
               <Route path='/post/:id/edit' component={Draft} onEnter={hooks.editPost(store)}/>
-              <Route path='/post/new' component={Draft}/>
               <Route path='/login' component={Login}/>
             </Router>
           </Provider>
-          <DevTools store={store} />
         </div>
     );
   }

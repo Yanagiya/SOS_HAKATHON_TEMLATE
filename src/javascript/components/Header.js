@@ -37,11 +37,6 @@ export default class Header extends Component {
 
     const iconElementRight = (
         <div>
-          <a style={styles.link}
-             href='https://github.com/knowbody/redux-react-router-example-app'
-             target='_blank'>
-            <image style={styles.image} src={SocialGithub} />
-          </a>
           <IconMenu style={styles.iconMenu}
                     iconButtonElement={
                       <IconButton>
@@ -55,7 +50,7 @@ export default class Header extends Component {
     );
 
     return (
-        <AppBar title='(redux, reactRouter) => example'
+        <AppBar title='SOS PROJECT'
                 iconElementLeft={<span />}
                 iconElementRight={iconElementRight} />
 
