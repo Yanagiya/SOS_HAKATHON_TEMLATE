@@ -57,8 +57,8 @@ export default class Blogpost extends Component {
         textAlign: 'center'
       },
       cardMediaImage: {
-        maxHeight: '500px',
-        maxWidth: '100%'
+        maxHeight: '200px',
+        maxWidth: '130%'
       }
     };
   }
@@ -94,9 +94,6 @@ export default class Blogpost extends Component {
                         onTouchTap={() => {
                           history.pushState(null, `/post/${post.id}/edit`);
                         }}/>
-              <MenuItem leftIcon={<ActionDelete />} primaryText='Remove'
-                        onTouchTap={actions.removePost.bind(null, post)}/>
-              <MenuItem leftIcon={<SocialShare />} primaryText='Share'/>
             </IconMenu>
           </CardHeader>
           {title}

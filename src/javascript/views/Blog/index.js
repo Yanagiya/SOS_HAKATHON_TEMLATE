@@ -43,12 +43,6 @@ class BlogApp extends Component {
                         user={users.filter(user => user.id === post.user)[0]}
                         actions={actions}/>
           )}
-          <FloatingActionButton style={styles.addContent}
-                                onTouchTap={() => {
-                                  history.pushState(null, '/post/new');
-                                }}>
-            <ContentAdd />
-          </FloatingActionButton>
         </AppBar>
     );
   }

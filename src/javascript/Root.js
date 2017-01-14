@@ -11,6 +11,8 @@ import DevTools from './containers/DevTools';
 import Blog from './views/Blog';
 import Draft from './views/Draft';
 import Login from './views/Login';
+import Customer from './views/Customer';
+import Home from './views/Home';
 
 hooks.bootstrap(store)();
 
@@ -20,10 +22,17 @@ export default class Root extends Component {
     return (
         <div>
           <Provider store={store}>
+		  {/*
             <Router history={createBrowserHistory()}>
-              <Route path='/' component={Blog} />
-              <Route path='/post/:id/edit' component={Draft} onEnter={hooks.editPost(store)}/>
-              <Route path='/login' component={Login}/>
+			  <Route path='/' component={Home}>	
+			  */}
+				<Route path='/customer' component={Customer}>
+              		<Route path='/customer/blog' component={Blog} />
+              		<Route path='/post/:id/edit' component={Draft} onEnter={hooks.editPost(store)}/>
+              		<Route path='/post/new' component={Draft}/>
+              		<Route path='/login' component={Login}/>
+			  	</Route>
+			  </Route>
             </Router>
           </Provider>
         </div>
