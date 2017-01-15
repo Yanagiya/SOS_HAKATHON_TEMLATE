@@ -11,7 +11,7 @@ const style = {
 		  margin: 30,
 };
 
-let customerLink = <Link to="/customer" />;
+let tableLink = <Link to="/table" />;
 let staffLink = <Link to="/staff" />;
 
 class Home extends Component {
@@ -55,7 +55,7 @@ class Home extends Component {
             <RaisedButton label="CUSTOMER" 
 						  primary={true} 
 						  style={style} 
-              containerElement={customerLink}
+              containerElement={tableLink}
             />            
             <RaisedButton label="STAFF" secondary={true} style={style} />            
           </Paper>

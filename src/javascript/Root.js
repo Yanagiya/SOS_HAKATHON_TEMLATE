@@ -14,6 +14,7 @@ import Login from './views/Login';
 import Auth from './views/Auth';
 import Home from './views/Home';
 import Confirm from './views/Confirm';
+import Table from './views/Table';
 
 hooks.bootstrap(store)();
 
@@ -25,6 +26,7 @@ export default class Root extends Component {
           <Provider store={store}>
             <Router history={createBrowserHistory()}>
               <Route path='/' component={Home} />
+			  <Route path='/table' component={Table} />
               <Route path='/customer' component={Auth} />
               <Route path='/post/:id/edit' component={Draft} onEnter={hooks.editPost(store)}/>
               <Route path='/post/new' component={Draft}/>

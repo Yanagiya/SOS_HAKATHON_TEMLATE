@@ -5,11 +5,11 @@ import { Link } from 'react-router';
 import { Paper, TextField, RaisedButton } from 'material-ui';
 import ActionAccountCicle
 from 'material-ui/lib/svg-icons/action/account-circle';
-import * as AuthActions from '../../redux/modules/auth';
+import * as AuthActions from '../../redux/modules/table';
 
-let menuLink = <Link to="/menu" />;
+let authLink = <Link to="/customer" />;
 
-class Auth extends Component {
+class Table extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired
   }
@@ -49,25 +49,14 @@ class Auth extends Component {
           <Paper style={styles.paper}>
             <ActionAccountCicle style={{ height: 100, width: 100 }}/><br/>
             <TextField ref='identity'
-                       hintText='email'
-                       floatingLabelText='email'
-                       defaultValue='john.doe@example.com'
+                       hintText='123'
+                       floatingLabelText='tableNo'
+                       defaultValue='0'
                        onKeyDown={::this.submit} /><br/>
-            <TextField ref='password'
-                       hintText='password'
-                       floatingLabelText='password'
-                       type='password'
-                       defaultValue='qwertyuiop'
-                       onKeyDown={::this.submit} /><br />
             <RaisedButton style={styles.submit}
-                          label='Login with Facebook'
-                          containerElement={menuLink}
+                          label='Submit'
+                          containerElement={authLink}
                           primary />
-            <RaisedButton style={styles.submit}
-                          label='Escape'
-                          containerElement={menuLink}
-                          secondary />
-
           </Paper>
         </div>
     );
@@ -75,15 +64,14 @@ class Auth extends Component {
 
   submit(event) {
     const { dispatch } = this.props;
-    const actions = bindActionCreators(AuthActions, dispatch);
+    const actions = bindActionCreators(TableActions, dispatch);
 
     const identity = this.refs.identity.state.hasValue;
-    const password = this.refs.password.state.hasValue;
 
     if (event.type === 'keydown' && event.keyCode !== 13) return;
 
-    actions.login(identity, password);
+    actions.login(identity);
   }
 }
 
-export default connect(state => ({ user: state.user }))(Auth);
+export default connect(state => ({ user: state.user }))(Table);
