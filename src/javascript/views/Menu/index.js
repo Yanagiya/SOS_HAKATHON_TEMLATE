@@ -56,7 +56,8 @@ class BlogApp extends Component {
                         post={post}
                         user={users.filter(user => user.id === post.user)[0]}
                         actions={actions}/>
-                  <RaisedButton name="btn1" label="order" primary={true} style={style} />
+                  <RaisedButton name="btn" label="order" primary={true} style={style} onClick={this.orderProcess.bind(this)} />
+                  <RaisedButton name="btn" label="cancel" secondary={true} style={style} disabled="true" onClick={this.orderProcess.bind(this)} />
               </div>
           )}
         </AppBar>
