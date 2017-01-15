@@ -37,8 +37,8 @@ if (isDev) {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 
-  app.listen(3000, '10.131.127.110', function(err) {
-  //app.listen(3000, 'localhost', function(err) {
+  //app.listen(3000, '10.131.127.110', function(err) {
+  app.listen(3000, 'localhost', function(err) {
     if (err) {
       console.log(err);
       return;
