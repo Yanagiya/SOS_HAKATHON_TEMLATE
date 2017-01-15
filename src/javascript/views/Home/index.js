@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { Paper, TextField, RaisedButton } from 'material-ui';
 import ActionAccountCicle
 from 'material-ui/lib/svg-icons/action/account-circle';
@@ -9,6 +10,9 @@ import * as AuthActions from '../../redux/modules/auth';
 const style = {
 		  margin: 30,
 };
+
+let customerLink = <Link to="/customer" />;
+let staffLink = <Link to="/staff" />;
 
 class Home extends Component {
   static propTypes = {
@@ -48,11 +52,12 @@ class Home extends Component {
     return (
         <div style={styles.center}>
           <Paper style={styles.paper}>
- 			<RaisedButton label="CUSTOMER" 
+            <RaisedButton label="CUSTOMER" 
 						  primary={true} 
 						  style={style} 
-						  onTouchTap={() => history.pushState(null, '/customer')}/>            
- 			<RaisedButton label="STAFF" secondary={true} style={style} />            
+              containerElement={customerLink}
+            />            
+            <RaisedButton label="STAFF" secondary={true} style={style} />            
           </Paper>
         </div>
     );

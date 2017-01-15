@@ -8,11 +8,12 @@ import * as hooks from './hooks';
 // Redux DevTools
 import DevTools from './containers/DevTools';
 
-import Blog from './views/Blog';
+import Menu from './views/Menu';
 import Draft from './views/Draft';
 import Login from './views/Login';
-import Customer from './views/Customer';
+import Auth from './views/Auth';
 import Home from './views/Home';
+import Confirm from './views/Confirm';
 
 hooks.bootstrap(store)();
 
@@ -23,18 +24,13 @@ export default class Root extends Component {
         <div>
           <Provider store={store}>
             <Router history={createBrowserHistory()}>
-			  {/*
-			  <Route path='/' component={Home}>	
-				<Route path='/customer' component={Customer}>
-				*/}
-              		<Route path='/' component={Blog} />
-              		<Route path='/post/:id/edit' component={Draft} onEnter={hooks.editPost(store)}/>
-              		<Route path='/post/new' component={Draft}/>
-              		<Route path='/login' component={Login}/>
-			  	{/*
-				</Route>
-			  </Route>
-			  */}
+              <Route path='/' component={Home} />
+              <Route path='/customer' component={Auth} />
+              <Route path='/post/:id/edit' component={Draft} onEnter={hooks.editPost(store)}/>
+              <Route path='/post/new' component={Draft}/>
+              <Route path='/login' component={Login}/>
+              <Route path='/menu' component={Menu}/>
+              <Route path='/confirm' component={Confirm}/>
             </Router>
           </Provider>
         </div>

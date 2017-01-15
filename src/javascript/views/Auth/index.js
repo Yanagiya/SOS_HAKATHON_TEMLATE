@@ -1,12 +1,15 @@
 import React, { PropTypes, Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { Paper, TextField, RaisedButton } from 'material-ui';
 import ActionAccountCicle
 from 'material-ui/lib/svg-icons/action/account-circle';
 import * as AuthActions from '../../redux/modules/auth';
 
-class Customer extends Component {
+let menuLink = <Link to="/menu" />;
+
+class Auth extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired
   }
@@ -58,7 +61,7 @@ class Customer extends Component {
                        onKeyDown={::this.submit} /><br />
             <RaisedButton style={styles.submit}
                           label='Submit'
-                          onTouchTap={::this.submit}
+                          containerElement={menuLink}
                           primary />
           </Paper>
         </div>
@@ -78,4 +81,4 @@ class Customer extends Component {
   }
 }
 
-export default connect(state => ({ user: state.user }))(Customer);
+export default connect(state => ({ user: state.user }))(Auth);
